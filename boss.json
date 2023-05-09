@@ -1,6 +1,6 @@
 {
 	"name": "ECLBr",
-	"description": "ECL Brasil - Essential Core Library para quem utiliza Delphi",
+	"description": "ECL Brasil - Essential Core Library for Delphi",
 	"version": "1.0.0",
 	"homepage": "www.isaquepinheiro.com.br",
 	"mainsrc": "./Source",

@@ -1,5 +1,5 @@
 {
-      ECL Brasil - Essential Core Library para quem utiliza Delphi
+            ECL Brasil - Essential Core Library for Delphi
 
                    Copyright (c) 2016, Isaque Pinheiro
                           All rights reserved.
