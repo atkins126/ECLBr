@@ -23,45 +23,42 @@
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
 }
 
-unit eclbr.rtti.objects;
+unit eclbr.objects;
 
 {$I ..\eclbr.inc}
 
 interface
 
 uses
-  Rtti;
+  Rtti,
+  eclbr.interfaces;
 
 type
-  IObjectFactory = interface
-    ['{E3B4DFC3-25AD-46F5-947C-1509E802C047}']
-    function CreateInstance(const AClass: TClass;
-      const AArgs: TArray<TValue>;
-      const AMethodName: string): TObject;
-  end;
-
-  TObjectFactory = class(TInterfacedObject, IObjectFactory)
+  TObjectFactory = class(TInterfacedObject, IECLBr)
   protected
-    function _FactoryInternal(const AClass: TClass;
-      const AArgs: TArray<TValue>;
-      const AMethodName: string): TObject;
+    function _FactoryInternal(AClass: TClass; AArgs: TArray<TValue>;
+      AMethodName: string): TObject;
   public
-    function CreateInstance(const AClass: TClass;
-      const AArgs: TArray<TValue> = nil;
-      const AMethodName: string = 'Create'): TObject;
+    function CreateInstance(AClass: TClass; AArgs: TArray<TValue> = nil;
+      AMethodName: string = 'Create'): TObject;
+    class function New: IECLBr;
   end;
 
 implementation
 
-function TObjectFactory.CreateInstance(const AClass: TClass;
-  const AArgs: TArray<TValue>; const AMethodName: string): TObject;
+function TObjectFactory.CreateInstance(AClass: TClass;
+  AArgs: TArray<TValue>; AMethodName: string): TObject;
 begin
   Result := _FactoryInternal(AClass, AArgs, AMethodname);
 end;
 
-function TObjectFactory._FactoryInternal(const AClass: TClass;
-  const AArgs: TArray<TValue>;
-  const AMethodName: string): TObject;
+class function TObjectFactory.New: IECLBr;
+begin
+  Result := Self.Create;
+end;
+
+function TObjectFactory._FactoryInternal(AClass: TClass; AArgs: TArray<TValue>;
+  AMethodName: string): TObject;
 var
   LContext: TRttiContext;
   LTypeService: TRttiType;
