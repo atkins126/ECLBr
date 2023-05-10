@@ -52,10 +52,10 @@ end;
 procedure TForm1.Button1Click(Sender: TObject);
 var
   LECLBr: IECLBr;
-  LObject: TObject;
+  LObject: TMyClass;
 begin
   LECLBr := GetLib;
-  LObject := LECLBr.CreateInstance(TMyClass, [], 'Create');
+  LObject := TMyClass(LECLBr.CreateInstance(TMyClass, [], 'Create'));
 end;
 
 end.

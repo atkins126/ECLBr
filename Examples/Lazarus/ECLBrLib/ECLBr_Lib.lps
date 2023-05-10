@@ -4,11 +4,11 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="ECLBr_Lib.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="10" Y="10"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
@@ -20,63 +20,71 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UMain"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="38"/>
-        <CursorPos X="69" Y="58"/>
+        <CursorPos X="22" Y="58"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
+        <Filename Value="..\..\..\Source\interfaces\eclbr.interfaces.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="22"/>
+        <CursorPos Y="31"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\..\..\Bin\Source\eclbr.lib.dll.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="40" Y="18"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
         <Filename Value="D:\lazarus\fpc\3.2.0\source\packages\rtl-objpas\src\inc\rtti.pp"/>
         <UnitName Value="Rtti"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2758"/>
         <CursorPos X="53" Y="2771"/>
         <UsageCount Value="10"/>
-      </Unit2>
-      <Unit3>
+      </Unit4>
+      <Unit5>
         <Filename Value="D:\lazarus\fpc\3.2.0\source\rtl\objpas\classes\classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2213"/>
         <CursorPos X="10" Y="2230"/>
         <UsageCount Value="10"/>
-      </Unit3>
-      <Unit4>
+      </Unit5>
+      <Unit6>
         <Filename Value="D:\lazarus\examples\dockmanager\package\uminirestore.pas"/>
         <UnitName Value="uMiniRestore"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="60"/>
         <CursorPos X="47" Y="11"/>
         <UsageCount Value="10"/>
-      </Unit4>
-      <Unit5>
+      </Unit6>
+      <Unit7>
         <Filename Value="D:\lazarus\examples\idehelp\myidehelp.pas"/>
         <UnitName Value="MyIDEHelp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="141"/>
         <CursorPos X="30" Y="85"/>
         <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="..\..\..\Source\interfaces\eclbr.interfaces.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="19"/>
-        <CursorPos Y="31"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="..\..\..\Bin\Source\eclbr.lib.dll.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="7"/>
-        <CursorPos X="40" Y="18"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-objpas\src\inc\rtti.pp"/>
+        <UnitName Value="Rtti"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="159"/>
+        <CursorPos X="3" Y="105"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit8>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="4" HistoryIndex="3">
       <Position1>
         <Filename Value="..\..\..\Source\interfaces\eclbr.interfaces.pas"/>
         <Caret Line="40" Column="71" TopLine="22"/>
@@ -89,6 +97,10 @@
         <Filename Value="umain.pas"/>
         <Caret Line="23" Column="17" TopLine="19"/>
       </Position3>
+      <Position4>
+        <Filename Value="umain.pas"/>
+        <Caret Line="58" Column="22" TopLine="38"/>
+      </Position4>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
