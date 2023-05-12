@@ -8,7 +8,6 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  rtti,
   eclbr.interfaces,
   eclbr.lib.dll;
 
@@ -26,8 +25,11 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
+    function CreateInstance(AClass: TClass): TObject;
 
   public
 
@@ -37,6 +39,9 @@ var
   Form1: TForm1;
 
 implementation
+
+uses
+  TypInfo, Rtti;
 
 {$R *.lfm}
 
@@ -56,6 +61,27 @@ var
 begin
   LECLBr := GetLib;
   LObject := LECLBr.CreateInstance(TMyClass, [], 'Create');
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  L: TMyClass;
+begin
+  L := TMyClass(CreateInstance(TMyClass));
+end;
+
+function TForm1.CreateInstance(AClass: TClass): TObject;
+var
+  Context: TRttiContext;
+  ClassType: TRttiType;
+begin
+  Context := TRttiContext.Create;
+  try
+    ClassType := Context.GetType(AClass);
+    Result := ClassType.GetMethod('Create').Invoke(ClassType.AsInstance.MetaclassType, []).AsObject;
+  finally
+    Context.Free;
+  end;
 end;
 
 end.
