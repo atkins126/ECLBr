@@ -1,23 +1,29 @@
 {
-    MCI Brasil Framework é um Motor de Cálculo de Impostos for Delphi/Lazarus
+            ECL Brasil - Essential Core Library for Delphi
 
-                   Copyright (c) 2019, Isaque Pinheiro
-                       Todos os direitos reservado.
+                   Copyright (c) 2016, Isaque Pinheiro
+                          All rights reserved.
+
+                    GNU Lesser General Public License
+                      Versão 3, 29 de junho de 2007
+
+       Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+       A todos é permitido copiar e distribuir cópias deste documento de
+       licença, mas mudá-lo não é permitido.
+
+       Esta versão da GNU Lesser General Public License incorpora
+       os termos e condições da versão 3 da GNU General Public License
+       Licença, complementado pelas permissões adicionais listadas no
+       arquivo LICENSE na pasta principal.
 }
 
 {
-  @abstract(Framework)
-  @created(25 Mai 2019)
+  @abstract(ECLBr Library)
+  @created(23 Abr 2023)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
-  @abstract(Website : https://www.isaquepinheiro.com.br/mcibr)
-  @abstract(Termo Uso : https://www.isaquepinheiro.com.br/mcibr)
 }
 
 unit eclbr.lib.dll;
-
-{$ifdef fpc}
-  {$mode delphi}{$H+}
-{$endif}
 
 interface
 

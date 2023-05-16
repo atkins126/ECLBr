@@ -1,5 +1,5 @@
 {
-            ECL Brasil - Essential Core Library for Delphi
+             ECL Brasil - Essential Core Library for Delphi
 
                    Copyright (c) 2016, Isaque Pinheiro
                           All rights reserved.
@@ -24,10 +24,6 @@
 }
 
 unit eclbr.interfaces;
-
-{$ifdef fpc}
-  {$mode delphi}{$H+}
-{$endif}
 
 interface
 

@@ -1,5 +1,5 @@
 {
-            ECL Brasil - Essential Core Library for Delphi
+             ECL Brasil - Essential Core Library for Delphi
 
                    Copyright (c) 2016, Isaque Pinheiro
                           All rights reserved.
@@ -34,7 +34,7 @@ uses
   eclbr.interfaces;
 
 type
-  TObjectFactory = class(TInterfacedObject, IECLBr)
+  TObjectFactory = class sealed(TInterfacedObject, IECLBr)
   protected
     function _FactoryInternal(AClass: TClass; AArgs: TArray<TValue>;
       AMethodName: string): TObject;
@@ -46,10 +46,10 @@ type
 
 implementation
 
-function TObjectFactory.CreateInstance(AClass: TClass;
-  AArgs: TArray<TValue>; AMethodName: string): TObject;
+function TObjectFactory.CreateInstance(AClass: TClass; AArgs: TArray<TValue>;
+  AMethodName: string): TObject;
 begin
-  Result := _FactoryInternal(AClass, AArgs, AMethodname);
+  Result := _FactoryInternal(AClass, AArgs, AMethodName);
 end;
 
 class function TObjectFactory.New: IECLBr;
@@ -72,8 +72,8 @@ begin
     LConstructorMethod := LTypeService.GetMethod(AMethodName);
     if LConstructorMethod.IsConstructor then
     begin
-      LInstance := LConstructorMethod.Invoke(LTypeService.AsInstance
-                                                         .MetaClassType, AArgs);
+      LInstance := LConstructorMethod.Invoke
+        (LTypeService.AsInstance.MetaClassType, AArgs);
       Result := LInstance.AsObject;
     end;
   finally
@@ -82,4 +82,3 @@ begin
 end;
 
 end.
-
