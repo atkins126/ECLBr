@@ -33,8 +33,8 @@ uses
 type
   IECLBr = interface
   ['{E3B4DFC3-25AD-46F5-947C-1509E802C047}']
-    function CreateInstance(AClass: TClass; AArgs: TArray<TValue>;
-      AMethodName: string = ''): TObject;
+    function CreateInstance(const AClass: TClass; const AArgs: TArray<TValue>;
+      const AMethodName: string = ''): TObject;
   end;
 
 implementation
