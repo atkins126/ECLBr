@@ -84,7 +84,7 @@ begin
       LInstance := LConstructor.Invoke(LType.AsInstance.MetaClassType, AArgs);
       Result := LInstance.AsObject;
 
-      // BUG NESSA ROTINA ABAIXO, EXECUTA COMO SE TIVESSE 2 CONSTRUTORES, REVER DEPOSIS
+      // BUG NESSA ROTINA ABAIXO, EXECUTA COMO SE TIVESSE 2 CONSTRUTORES, REVER DEPOIS
 
       // Verifica se o método construtor possui parâmetros
 //      LLengthArgs := Length(AArgs);
