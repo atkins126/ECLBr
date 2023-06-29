@@ -31,23 +31,24 @@ interface
 
 uses
   Rtti,
+  SysUtils,
   eclbr.interfaces;
 
 type
   TObjectFactory = class sealed(TInterfacedObject, IECLBr)
   protected
-    function _FactoryInternal(AClass: TClass; AArgs: TArray<TValue>;
-      AMethodName: string): TObject;
+    function _FactoryInternal(const AClass: TClass; const AArgs: TArray<TValue>;
+      const AMethodName: string): TObject;
   public
-    function CreateInstance(AClass: TClass; AArgs: TArray<TValue> = nil;
-      AMethodName: string = 'Create'): TObject;
+    function CreateInstance(const AClass: TClass;
+      const AArgs: TArray<TValue> = []; const AMethodName: string = 'Create'): TObject;
     class function New: IECLBr;
   end;
 
 implementation
 
-function TObjectFactory.CreateInstance(AClass: TClass; AArgs: TArray<TValue>;
-  AMethodName: string): TObject;
+function TObjectFactory.CreateInstance(const AClass: TClass;
+  const AArgs: TArray<TValue>; const AMethodName: string): TObject;
 begin
   Result := _FactoryInternal(AClass, AArgs, AMethodName);
 end;
@@ -57,27 +58,30 @@ begin
   Result := Self.Create;
 end;
 
-function TObjectFactory._FactoryInternal(AClass: TClass; AArgs: TArray<TValue>;
-  AMethodName: string): TObject;
+function TObjectFactory._FactoryInternal(const AClass: TClass;
+  const AArgs: TArray<TValue>; const AMethodName: string): TObject;
 var
   LContext: TRttiContext;
-  LTypeService: TRttiType;
-  LConstructorMethod: TRttiMethod;
+  LType: TRttiType;
   LInstance: TValue;
+  LConstructor: TRttiMethod;
 begin
   Result := nil;
-  LContext := TRttiContext.Create;
   try
-    LTypeService := LContext.GetType(AClass);
-    LConstructorMethod := LTypeService.GetMethod(AMethodName);
-    if LConstructorMethod.IsConstructor then
-    begin
-      LInstance := LConstructorMethod.Invoke
-        (LTypeService.AsInstance.MetaClassType, AArgs);
+    LContext := TRttiContext.Create;
+    try
+      LType := LContext.GetType(AClass);
+      LConstructor := LType.GetMethod(AMethodName);
+      if not LConstructor.IsConstructor then
+        raise Exception.CreateFmt('Constructor method %s not found in class %s', [AMethodName, AClass.ClassName]);
+      LInstance := LConstructor.Invoke(LType.AsInstance.MetaClassType, AArgs);
       Result := LInstance.AsObject;
+    finally
+      LContext.Free;
     end;
-  finally
-    LContext.Free;
+  except
+    on E: Exception do
+      raise Exception.CreateFmt('Error class [%s] : %s', [AClass.ClassName, E.Message]);
   end;
 end;
 
