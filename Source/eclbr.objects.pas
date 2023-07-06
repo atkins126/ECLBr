@@ -66,7 +66,6 @@ var
   LInstance: TValue;
   LConstructor: TRttiMethod;
 begin
-  Result := nil;
   try
     LContext := TRttiContext.Create;
     try
